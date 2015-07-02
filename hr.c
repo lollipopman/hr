@@ -20,8 +20,8 @@ struct program_options {
 
 void print_usage() {
   printf("Usage: hr\n");
-  printf("  -c Force color output even when stdout is a pipe\n");
-  printf("  -d DELIMITER, default '━'\n");
+  printf("  -c Force color output even when stdout is not a terminal\n");
+  printf("  -d DELIMITER, specify the delimiter, default '━'\n");
   printf("  -n Disable color output\n");
 }
 
