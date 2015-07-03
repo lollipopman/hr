@@ -25,24 +25,6 @@ void print_usage() {
   printf("  -n Disable color output\n");
 }
 
-static int measure_terminal_width(char *string) {
-  int width;
-  size_t needed = mbstowcs(NULL, string, 0) + 1;
-  wchar_t *wcstring = malloc(needed * sizeof *wcstring);
-
-  if (!wcstring) return -1;
-
-  /* change encodings */
-  if (mbstowcs(wcstring, string, needed) == (size_t)-1) return -2;
-
-  /* measure width */
-  width = wcswidth(wcstring, needed);
-
-  free(wcstring);
-  return width;
-}
-
-
 static int parse_argv(int argc, char *argv[], struct program_options *options) {
   char *endptr;
   bool force_color_output = false;
@@ -56,7 +38,7 @@ static int parse_argv(int argc, char *argv[], struct program_options *options) {
       force_color_output = true;
       break;
     case 'd':
-      delimiter_width = measure_terminal_width(optarg);
+      delimiter_width = mbstowcs(NULL, optarg, 0);
       if (delimiter_width != 1) {
         fprintf(stderr, "Delimiter must be a single column in width your string is %d columns wide\n", delimiter_width);
         return -EINVAL;
