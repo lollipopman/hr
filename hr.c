@@ -23,6 +23,7 @@ void print_usage() {
   printf("  -c Force color output even when stdout is not a terminal\n");
   printf("  -d DELIMITER, specify the delimiter, default '━'\n");
   printf("  -n Disable color output\n");
+  printf("  -w WIDTH, specify width, rather than using the terminal width\n");
 }
 
 static int parse_argv(int argc, char *argv[], struct program_options *options) {
