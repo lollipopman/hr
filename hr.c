@@ -18,7 +18,7 @@ struct program_options {
   int  width;
 };
 
-void print_usage() {
+static void print_usage() {
   printf("Usage: hr\n");
   printf("  -c Force color output even when stdout is not a terminal\n");
   printf("  -d DELIMITER, specify the delimiter, default '━'\n");
