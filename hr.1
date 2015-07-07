@@ -1,0 +1,26 @@
+.TH HR 1
+.Sh NAME
+hr \- print a horizontal rule on a terminal
+.SH SYNOPSIS
+.B hr
+[\fB\-nc\fR]
+[\fB\-d\fR \fIDELIMITER\fR]
+[\fB\-w\fR \fIWIDTH\fR]
+.SH DESCRIPTION
+Print a horizontal rule across the width of the terminal,
+or alternitively specify the width
+.SH OPTIONS
+.TP
+.BR \-c
+Force color output even when stdout is a not a terminal
+.TP
+.BR \-d " "\fIDELIMITER\fR
+Specify a character delimiter rather than using a terminal line drawing character
+.TP
+.BR \-n
+Disable color output
+.TP
+.BR \-w " "\fIWIDTH\fR
+Specify a width for the rule, rather than using the terminal width
+.SH AUTHOR
+Written by Jesse Hathaway
